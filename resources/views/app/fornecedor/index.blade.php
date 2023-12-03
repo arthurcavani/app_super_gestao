@@ -6,11 +6,18 @@
 @endphp
 
 @isset($fornecedores)
-    Fornecedor: {{ $fornecedores[0]['nome'] }}
-    <br>
-    Status: {{ $fornecedores[0]['status'] }}
-    <br>
-    @isset($fornecedores[0]['cnpj'])
-        CNPJ: {{ $fornecedores[0]['cnpj'] }}
-    @endisset
+
+    @php $i = 0; @endphp
+    @while(isset($fornecedores[$i]))
+        Fornecedor: {{ $fornecedores[$i]['nome'] }}
+        <br>
+        Status: {{ $fornecedores[$i]['status'] }}
+        <br>
+        CNPJ: {{  $fornecedores[$i]['cnpj'] ?? '' }}
+        <br>
+        Telefone: ({{  $fornecedores[$i]['ddd'] ?? '' }}) {{  $fornecedores[$i]['telefone'] ?? '' }}
+        <hr>
+        @php $i++; @endphp
+    @endwhile
+
 @endisset
