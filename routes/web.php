@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PrincipalController@principal')->name('site.index');
+Route::get('/', 'PrincipalController@principal')->name('site.index')->middleware('log.acesso');
 Route::get('/sobre-nos', 'SobreNosController@sobreNos')->name('site.sobrenos');
 Route::get('/contato', 'ContatoController@contato')->name('site.contato');
 Route::post('/contato', 'ContatoController@salvar')->name('site.contato');
@@ -33,6 +33,6 @@ Route::prefix('/app')->group(function () {
 
 Route::get('/teste/{p1}/{p2}', 'TesteController@teste')->name('teste');
 
-Route::fallback(function(){
-    echo 'A rota acessada não existe. Clique <a href="'.route('site.index').'">aqui</a> para voltar.';
+Route::fallback(function () {
+    echo 'A rota acessada não existe. Clique <a href="' . route('site.index') . '">aqui</a> para voltar.';
 });
