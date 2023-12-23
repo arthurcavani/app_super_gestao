@@ -6,7 +6,7 @@
     <div class="conteudo-pagina">
 
         <div class="titulo-pagina-2">
-            <p>Fornecedor</p>
+            <p>Fornecedor - Adicionar</p>
         </div>
 
         <div class="menu">
@@ -18,13 +18,12 @@
 
         <div class="informacao-pagina">
             <div style="width: 30%; margin-left: auto; margin-right: auto;">
-                <form method="post" action="{{ route('app.fornecedor.listar') }}">
-                    @csrf
+                <form method="post" action="">
                     <input name="nome" type="text" placeholder="Nome" class="borda-preta" >
                     <input name="site" type="text" placeholder="Site" class="borda-preta" >
                     <input name="uf" type="text" placeholder="UF" class="borda-preta" >
                     <input name="email" type="text" placeholder="E-Mail" class="borda-preta" >
-                    <button type="submit" class="borda-preta">Pesquisar</button>
+                    <button type="submit" class="borda-preta">Cadastrar</button>
                 </form>
             </div>
         </div>
