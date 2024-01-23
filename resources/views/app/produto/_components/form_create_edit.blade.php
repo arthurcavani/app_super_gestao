@@ -20,7 +20,8 @@
 <select name="unidade_id">
     <option>-- Selecione a unidade de medida --</option>
     @foreach ($unidades as $unidade)
-        <option value="{{ $unidade->id }}" {{ ($unidade->id ?? old('unidade_id')) == $unidade->id ? 'selected' : '' }}>
+        <option value="{{ $unidade->id }}"
+            {{ ($produto_detalhe->unidade_id ?? old('unidade_id')) == $unidade->id ? 'selected' : '' }}>
             {{ $unidade->descricao }}</option>
     @endforeach
 </select>
