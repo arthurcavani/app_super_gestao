@@ -17,10 +17,37 @@
         </div>
 
         <div class="informacao-pagina">
-            <h4>Detalhes do pedido</h4>
+            <h4>Detalhes do Pedido</h4>
             <p>ID do Pedido: {{ $pedido->id }}</p>
             <p>Cliente: {{ $pedido->cliente_id }}</p>
             <div style="width: 30%; margin-left: auto; margin-right: auto;">
+                <h4>Itens do Pedido</h4>
+                <table border="1" width="100%">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome do produto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($pedido->produtos as $produto)
+                            <tr>
+                                <td>{{ $produto->id }}</td>
+                                <td>{{ $produto->nome }}</td>
+                                {{-- <td>
+                                    <form id="form_{{ $cliente->id }}" method="post"
+                                        action="{{ route('cliente.destroy', ['cliente' => $cliente->id]) }}">
+                                        @method('DELETE')
+                                        @csrf
+                                        <a href="#"
+                                            onclick="document.getElementById('form_{{ $cliente->id }}').submit()">Excluir</a>
+                                    </form>
+                                </td> --}}
+                                {{-- <td><a href="{{ route('cliente.edit', ['cliente' => $cliente->id]) }}">Editar</a></td> --}}
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
                 @component('app.pedido_produto._components.form_create', ['pedido' => $pedido, 'produtos' => $produtos])
                 @endcomponent
             </div>
