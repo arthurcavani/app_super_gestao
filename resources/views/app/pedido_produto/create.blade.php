@@ -27,6 +27,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Nome do produto</th>
+                            <th>Data Inclusão</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,6 +35,7 @@
                             <tr>
                                 <td>{{ $produto->id }}</td>
                                 <td>{{ $produto->nome }}</td>
+                                <td>{{ $produto->pivot->created_at->format('d/m/Y') }}</td>
                                 {{-- <td>
                                     <form id="form_{{ $cliente->id }}" method="post"
                                         action="{{ route('cliente.destroy', ['cliente' => $cliente->id]) }}">
